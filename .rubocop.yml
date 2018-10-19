@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.5
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Style/Documentation:
+  Enabled: false
