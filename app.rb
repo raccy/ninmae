@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rack/base'
+require 'sinatra/base'
 
 class App < Sinatra::Base
   get '/' do
     slim :top
   end
 
-  get '/js'
+  run! if app_file == $0
 end
