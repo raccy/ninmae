@@ -6,3 +6,5 @@
 - Ruby
 - Node.js
 - Sass
+
+yarn run parcel build -d public src/index.pug
