@@ -8,3 +8,6 @@
 - Sass
 
 yarn run parcel build -d public src/index.pug
+
+
+bundle install --path vendor/bundler

@@ -6,16 +6,16 @@
   "author": "raccy <open@raccy.org>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.1.3",
-    "bootstrap.native": "^2.0.23",
-    "hyperapp": "^1.2.9"
+    "bootstrap.native": "^2.0.24",
+    "hyperapp": "^1.2.9",
+    "milligram": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "coffeescript": "^2.3.2",
+    "parcel-bundler": "^1.10.3",
     "pug": "^2.0.3",
-    "sass": "^1.15.1",
-    "parcel-bundler": "^1.10.3"
+    "sass": "^1.15.1"
   }
 }
