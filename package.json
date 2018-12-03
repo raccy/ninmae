@@ -5,8 +5,16 @@
   "repository": "git@github.com:raccy/ninmae.git",
   "author": "raccy <open@raccy.org>",
   "license": "MIT",
+  "scripts": {
+    "prebuild:clean": "rimraf auth",
+    "prebuild:mkdir": "mkdirp auth",
+    "prebuild": "npm-run-all -s prebuild:clean prebuild:mkdir",
+    "build:parcel": "parcel build index.pug --out-dir auth --no-source-maps --public-url /auth",
+    "build:cgi": "cpx app.cgi ./auth",
+    "build:yaml": "cpx ninmae.yml ./auth",
+    "build": "npm-run-all build:parcel build:cgi build:yaml"
+  },
   "dependencies": {
-    "bootstrap.native": "^2.0.24",
     "hyperapp": "^1.2.9",
     "milligram": "^1.3.0"
   },
@@ -14,8 +22,10 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "coffeescript": "^2.3.2",
+    "cpx": "^1.5.0",
     "parcel-bundler": "^1.10.3",
     "pug": "^2.0.3",
+    "rimraf": "^2.6.2",
     "sass": "^1.15.1"
   }
 }

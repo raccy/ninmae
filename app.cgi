@@ -1,9 +1,14 @@
 #!/bin/env ruby
 # frozen_string_literal: true
 
-require 'bundle/setup'
-Bundler.setup
-$: << File.expand_path('', __FILE__)
+require 'yaml'
+
+DATA_DIR = File.expand('./data', __FILE__)
+
+if $0 == __FILE__
+  settings = YAML.load_file(File.join(DATA_DIR, 'ninmae.yml'))
+end
+
 
 print 'Content-type: text/html\n\n'
 
