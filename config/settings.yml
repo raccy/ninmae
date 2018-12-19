@@ -1,0 +1,42 @@
+---
+# このアプリの名前です。
+# サイト内の他のアプリと重ならないようにしなければなりません。
+name: ninmae
+# このアプリのWeb上の絶対パスです。
+# プロトコルやホスト名を付けてはいけません。
+path: /auth
+# 認証前確認の対象となるアプリを置いている場所です。
+# 複数指定できます。
+targets:
+  - /var/www/html/app
+# 信頼できるIPアドレスとドメインです。ドメインはサブドメインを含みます。
+trusted:
+  ip:
+    - "127.0.0.0/8"
+    - "169.254.0.0/16"
+    - "192.168.0.0/16"
+    - "172.16.0.0/12"
+    - "10.0.0.0/8"
+    - "::1"
+    - "fe80::/10"
+    - "fd00::/8"
+  domain:
+    - jp
+# 不審なIPアドレスです。
+suspicious:
+  ip: []
+  domain: []
+# 逆引きを行うかどうかです。
+reverse_ip: true
+# 確認完了後に次に確認を行うまでの時間です。
+expire_time:
+  truted_ip: -1 # 常に信頼
+  suspicious_ip: 0 # 不可
+  trusted_domain: 2592000 # 1 month
+  suspicious_domain: 0 # 不可
+  other_domain: 86400 # 1 day
+  unknown_ip: 3600 # 1 hour
+secrets:
+  session_key: null
+  auth_key: null
+problems_dir: 'problems'

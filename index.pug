@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="ja")
   head
     meta(charest="utf-8")
     meta(
@@ -11,4 +11,8 @@ html
     script(src="main.coffee")
   body
     noscript
-    h1 認証前確認
+      p
+        | JavaScriptが無効のため、認証前確認を行うことができません。
+        | JavaScriptを有効にしてページを再読み込みしてください。
+    div#main
+      p 読み込み中…

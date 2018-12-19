@@ -1,0 +1,23 @@
+---
+problems:
+  - question: 夏目漱石の処女小説のタイトルは？
+    type: text
+    length: 8
+    pre: 吾輩は
+    post: である
+  - question: "最も長かったのは？"
+    type: selection
+    list:
+      - "明治"
+      - "大正"
+      - "昭和"
+      - "平成"
+    answer: 2
+  - question: "現在の千円札の表面の人物が行ったことは？"
+    type: selection
+    list:
+      - "中国の制度を学び、日本の礎を作った。"
+      - "英国の制度を学び、日本の近代化を進めた。"
+      - "英国の文学を学び、近代文学の始まりを作った。"
+      - "米国の医学を学び、黄熱病や梅毒の研究を行った。"
+    answer: 3
