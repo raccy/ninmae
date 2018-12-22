@@ -1,3 +1,4 @@
-<FilesMatch ".yml$">
-  Require all denied
-</FilesMatch>
+
+Require expr HTTP_COOKIE =~ /ninmae_session=(\d+):([\da-f]+);/ && \
+  $1 -ge %{TIME} && \
+  $2 == md5('$1secret')

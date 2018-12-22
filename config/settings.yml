@@ -21,7 +21,7 @@ trusted:
     - "fe80::/10"
     - "fd00::/8"
   domain:
-    - jp
+    - ".jp"
 # 不審なIPアドレスです。
 suspicious:
   ip: []
@@ -30,13 +30,13 @@ suspicious:
 reverse_ip: true
 # 確認完了後に次に確認を行うまでの時間です。
 expire_time:
-  truted_ip: -1 # 常に信頼
-  suspicious_ip: 0 # 不可
+  truted_ip: null # 常に信頼
+  suspicious_ip: -1 # 不可
   trusted_domain: 2592000 # 1 month
-  suspicious_domain: 0 # 不可
+  suspicious_domain: -1 # 不可
   other_domain: 86400 # 1 day
   unknown_ip: 3600 # 1 hour
-secrets:
-  session_key: null
-  auth_key: null
+secret:
+  session: null
+  auth: null
 problems_dir: 'problems'

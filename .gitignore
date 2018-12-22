@@ -1,6 +1,6 @@
 node_modules/
 .cache/
 vendor/
-auth/
+dist/
 yarn.lock
 package-lock.json

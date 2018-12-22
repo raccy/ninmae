@@ -6,13 +6,15 @@
   "author": "raccy <open@raccy.org>",
   "license": "MIT",
   "scripts": {
-    "prebuild:clean": "rimraf auth",
-    "prebuild:mkdir": "mkdirp auth",
+    "prebuild:clean": "rimraf dist",
+    "prebuild:mkdir": "mkdirp dist",
     "prebuild": "npm-run-all -s prebuild:clean prebuild:mkdir",
-    "build:parcel": "parcel build index.pug --out-dir auth --no-source-maps --public-url /auth",
-    "build:cgi": "cpx app.cgi ./auth",
-    "build:yaml": "cpx ninmae.yml ./auth",
-    "build": "npm-run-all build:parcel build:cgi build:yaml"
+    "build:parcel": "cross-env NODE_ENV=production parcel build src/index.pug --out-dir dist --no-source-maps --public-url .",
+    "build:api": "ncp api dist/api",
+    "build:config": "ncp config dist/config",
+    "build:bin": "ncp bin dist/bin",
+    "build:lib": "ncp lib dist/lib",
+    "build": "npm-run-all build:*"
   },
   "dependencies": {
     "hyperapp": "^1.2.9",
@@ -23,6 +25,10 @@
     "@babel/preset-env": "^7.1.0",
     "coffeescript": "^2.3.2",
     "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.10.3",
     "pug": "^2.0.3",
     "rimraf": "^2.6.2",

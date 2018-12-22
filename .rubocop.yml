@@ -6,3 +6,12 @@ Layout/EndOfLine:
 
 Style/Documentation:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names

@@ -1,0 +1,2 @@
+
+NINMAE_API = './api'
