@@ -1,0 +1,7 @@
+---
+question: test_text
+type: text
+length: 8
+pre: pre_answer
+post: post_answer
+answer: answer_text

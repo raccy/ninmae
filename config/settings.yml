@@ -1,5 +1,5 @@
 ---
-# このアプリの名前です。
+# このアプリの名前です。Cookieの名前に使われます。
 # サイト内の他のアプリと重ならないようにしなければなりません。
 name: ninmae
 # このアプリのWeb上の絶対パスです。
@@ -37,6 +37,9 @@ expire_time:
   other_domain: 86400 # 1 day
   unknown_ip: 3600 # 1 hour
 secret:
+  # 使用できる文字は 0-9 A-Z a-z + / = - _ です。
+  # Base64またはURLSAFEなBase64を使用して下し。
   session: null
   auth: null
-problems_dir: 'problems'
+# 問題集があるディレクトリです。このファイルからの相対パスです。
+problems_dir: './problems'

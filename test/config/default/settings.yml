@@ -1,0 +1,6 @@
+---
+name: ninmae
+path: /ninmae
+secret:
+  session: "abcdefghijklmnopqrstuvwxzy"
+  api: "abcdefghijklmnopqrstuvwxzyABCDEFGHIJKLMNOPQRSTUVWXYZ"

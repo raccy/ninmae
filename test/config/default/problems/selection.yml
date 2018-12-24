@@ -1,0 +1,9 @@
+---
+question: test_selection
+type: selection
+list:
+  - el0
+  - el1
+  - el2
+  - el3
+answer: 0
