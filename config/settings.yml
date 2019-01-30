@@ -38,8 +38,13 @@ expire_time:
   unknown_ip: 3600 # 1 hour
 secret:
   # 使用できる文字は 0-9 A-Z a-z + / = - _ です。
-  # Base64またはURLSAFEなBase64を使用して下し。
+  # ランダムバイトをBase64またはURLSAFEなBase64してください。
+  # 文字列は10文字以上でなければなりません。
+  # SecureRandom.urlsafe_base64(20)
   session: null
+  # 使用できる文字は印字可能なASCII(空白含む)です。
+  # パターンは256bit分しか意味を持ちません。
+  # 40.times.map((0x20 + SecureRandom.random_number(0x7e - 0x20 + 1)).char).join
   auth: null
 # 問題集があるディレクトリです。このファイルからの相対パスです。
 problems_dir: './problems'

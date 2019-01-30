@@ -46,7 +46,7 @@ number of problems: #{problems.size}
     @settings['secret']['session']
   end
 
-  def secret_session
+  def secret_api
     @settings['secret']['api']
   end
 
@@ -55,8 +55,8 @@ number of problems: #{problems.size}
   end
 
   def check_secret
-    secret_session =~ /\A[\w\-]{20,}\z/
-    secret_api =~ /\A[\x20-\x7E]{20,}\z/
+    secret_session =~ /\A[\w\-\/+=]{20,}\z/ &&
+      secret_api =~ /\A[\x20-\x7E]{20,}\z/
   end
 
   def run_cgi(cgi)
@@ -152,7 +152,7 @@ number of problems: #{problems.size}
   def check_settings
     result = {}
     name = @settings['name']
-    if name.is_a(String) && name =~ /\A[a-z][a-z\d]+\z/
+    if name.is_a(String) && name =~ /\A[a-z][\da-z]+\z/
       result['name'] = {value: name, status: :ok}
     end
   end
