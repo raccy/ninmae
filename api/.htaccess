@@ -1,2 +1,7 @@
 Options +ExecCGI
 AddHandler cgi-script .cgi
+DirectoryIndex index.cgi
+<IfModule mod_fcgid.c>
+  AddHandler fcgid-script .fcgi
+  DirectoryIndex index.fcgi
+</IfModule>

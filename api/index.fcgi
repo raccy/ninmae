@@ -15,5 +15,5 @@ require 'ninmae/app'
 
 if $0 == FILE
   app = Ninmae::App.new(APP_CONFIG_DIR)
-  Rack::Handler::CGI.run app
+  Rack::Handler::FCGI.run app
 end

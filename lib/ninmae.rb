@@ -1,4 +1,3 @@
-#!/bin/env ruby
 # frozen_string_literal: true
 
 require 'cgi'
@@ -9,37 +8,15 @@ require 'securerandom'
 require 'time'
 require 'ipaddr'
 
-class Ninmae
-  VERSION = '1.0'
+require_relative 'ninmae/error'
+require_relative 'ninmae/version'
 
-  class NinmaeError < StandardError
-  end
+class Ninmae
   SETTINGS_YAML_FILE = 'settings.yml'
 
   def initialize(config_dir)
     @config_dir = config_dir
-    @settings = YAML.load_file(File.join(@config_dir, 'settings.yml'))
-  end
-
-  def run_cmd(argv)
-    case argv[0]
-    when 'htaccess'
-      print <<-"HTACCESS"
-\# ninmae
-ErrorDocument 403 /ninmae/api?action=redirect
-Require expr HTTP_COOKIE =~ /ninmae_session=(\\d+):([\\da-f]+);/ && \\
-  $1 -ge %{TIME} && \\
-  $2 == md5('#{name}$1#{secret_session}')
-      HTACCESS
-    when nil
-      print <<-"INFO"
-ninmae ver. #{VERSION}
-name: #{name}
-path: #{path}
-secret status: #{check_secret ? 'ok' : 'ng'}
-number of problems: #{problems.size}
-      INFO
-    end
+    @settings = YAML.load_file(File.join(@config_dir, SETTINGS_YAML_FILE))
   end
 
   def secret_session
@@ -57,22 +34,6 @@ number of problems: #{problems.size}
   def check_secret
     secret_session =~ /\A[\w\-\/+=]{20,}\z/ &&
       secret_api =~ /\A[\x20-\x7E]{20,}\z/
-  end
-
-  def run_cgi(cgi)
-    session_time = check_session(cgi.cookies)
-    if session_time && within_validity_period?(session_time)
-    end
-
-
-    case cgi['action']
-    when nil, ''
-      run_default(cgi)
-    when 'retrieve'
-      run_retrieve
-    when 'answer'
-      run_answer
-    end
   end
 
   def check_session(cookies)
