@@ -9,7 +9,7 @@
     "prebuild:clean": "rimraf dist",
     "prebuild:mkdir": "mkdirp dist",
     "prebuild": "npm-run-all -s prebuild:clean prebuild:mkdir",
-    "build:parcel": "cross-env NODE_ENV=production parcel build src/index.pug --out-dir dist --no-source-maps --public-url .",
+    "build:parcel": "cross-env NODE_ENV=production parcel build src/main.coffee --out-dir dist --no-source-maps --public-url .",
     "build:api": "ncp api dist/api",
     "build:config": "ncp config dist/config",
     "build:bin": "ncp bin dist/bin",
